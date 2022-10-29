@@ -1,7 +1,7 @@
-import { LOGIN_USER_ERROR, LOGIN_USER_SUCCESS, LOGIN_USER } from "../constants/constantsFetch";
+import { LOGIN_USER_ERROR, LOGIN_USER_SUCCESS, LOGIN_USER } from "../constants/constants";
 import axios from 'axios';
 
-export const LoadItems = ({ username, password }) => async (dispatch) => {
+const loginAction = ({ formValue }) => async (dispatch) => {
     let url = "http://45.63.123.1/apiXML/v1/users/login";
 
     try {
@@ -10,8 +10,8 @@ export const LoadItems = ({ username, password }) => async (dispatch) => {
             method: 'post',
             url: url,
             data: {
-                username,
-                password
+                username: formValue.username,
+                password: formValue.password
             }
         }).then(data => {
             const responseBody = data.data;
@@ -21,10 +21,12 @@ export const LoadItems = ({ username, password }) => async (dispatch) => {
             })
         })
     } catch (error) {
-        console.log(error)
+        console.log(error);
         dispatch({
             type: LOGIN_USER_ERROR,
-            message: error
+            data: error
         })
     }
 }
+
+export default loginAction;

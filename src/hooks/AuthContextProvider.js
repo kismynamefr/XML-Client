@@ -9,7 +9,8 @@ const AuthContextProvider = ({ children }) => {
     return (
         <AuthContext.Provider
             value={{
-                usersHasSignin
+                usersHasSignin,
+                setUsersHasSignin
             }}
         >
             {children}
