@@ -14,3 +14,7 @@ export const GET_BOT_ERROR = "GET_BOT_ERROR"
 export const DELETE_BOT = "DELETE_BOT"
 export const DELETE_BOT_SUCCESS = "DELETE_BOT_SUCCESS"
 export const DELETE_BOT_ERROR = "DELETE_BOT_ERROR"
+//uploadbot
+export const UPLOAD_BOT = "UPLOAD_BOT"
+export const UPLOAD_BOT_SUCCESS = "UPLOAD_BOT_SUCCESS"
+export const UPLOAD_BOT_ERROR = "UPLOAD_BOT_ERROR"

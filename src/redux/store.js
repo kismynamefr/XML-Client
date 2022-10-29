@@ -7,8 +7,6 @@ import {
 import storage from "redux-persist/lib/storage";
 import rootReducers from './reducer/index';
 
-// const middlewares = [thunk];
-
 const persistConfig = {
     key: "root",
     version: 1,
@@ -17,14 +15,6 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducers);
 
-// if (process.env.NODE_ENV !== 'production') {
-//     middlewares.push(createLogger());
-// }
-
-// const stores = createStore(
-//     reducers,
-//     applyMiddleware(...middlewares)
-// )
 export const store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>

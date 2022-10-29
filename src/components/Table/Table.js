@@ -3,6 +3,7 @@ import {
     TableContainer, Tbody, Td, Th, Thead, Tr, useColorModeValue
 } from '@chakra-ui/react';
 import React from 'react';
+import ActiveButton from '../ActiveButton/ActiveButton';
 
 const TableIndex = () => {
     return (
@@ -29,7 +30,7 @@ const TableIndex = () => {
                             color: 'white',
                         }}>
                         <Td>feet</Td>
-                        <Td>centimetres (cm)</Td>
+                        <Td><ActiveButton /></Td>
                         <Td isNumeric>30.48</Td>
                         <Td isNumeric>30.48</Td>
                         <Td isNumeric>30.48</Td>

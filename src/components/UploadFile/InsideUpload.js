@@ -1,14 +1,25 @@
 import {
-    Box, Button, Container, Heading, Input, Stack, Text
+    Box, Button, Container, Heading, Input, Stack, Text, Spinner
 } from '@chakra-ui/react';
 import React, { useRef, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import actionUploadBot from "../../redux/action/actionUploadBot";
 
 const InsideUpload = () => {
     const [selectedFile, setSelectedFile] = useState(null);
+    const [formValue, setFormValue] = useState({
+        NameBot: "",
+        ValueBot: null,
+    });
     const hiddenFileInput = useRef(null);
+    const dispatch = useDispatch();
     const reader = new FileReader();
+    const requesting = useSelector((state) => state.uploadBot?.requesting);
 
-    console.log("selectedFile: ", selectedFile);
+    const handleForm = (e) => {
+        const { name, value } = e.target;
+        setFormValue({ ...formValue, [name]: value });
+    };
 
     const handleClick = () => {
         hiddenFileInput.current.click();
@@ -18,10 +29,16 @@ const InsideUpload = () => {
         const fileUploaded = event.target.files[0];
         reader.readAsText(fileUploaded);
         reader.onload = (e) => {
-            const readerData = e.target.result;
-            console.log(JSON.stringify(readerData));
+            const { result } = e.target;
+            const { name } = event.target;
+            setSelectedFile(fileUploaded);
+            setFormValue({ ...formValue, [name]: JSON.stringify(result) });
         }
-        setSelectedFile(fileUploaded);
+    };
+
+    const handleUploadBot = (e) => {
+        e.preventDefault();
+        dispatch(actionUploadBot({ formValue }));
     };
 
     return (
@@ -67,6 +84,8 @@ const InsideUpload = () => {
                                 _placeholder={{
                                     color: 'gray.500',
                                 }}
+                                name="NameBot"
+                                onChange={handleForm}
                             />
                             {
                                 selectedFile &&
@@ -74,9 +93,9 @@ const InsideUpload = () => {
                                     File name: {selectedFile.name}
                                 </Button>
                             }
-                            <input type="file" id="actual-btn" accept="text/xml, application/xml" ref={hiddenFileInput} onChange={handleChange} hidden />
+                            <input name='ValueBot' type="file" id="actual-btn" accept="text/xml, application/xml" ref={hiddenFileInput} onChange={handleChange} hidden />
                             <Button fontFamily={'heading'} bg={'gray.200'} color={'gray.800'} onClick={handleClick}>
-                                Upload Bot
+                                Choose File Bot
                             </Button>
                         </Stack>
                         <Button
@@ -88,8 +107,14 @@ const InsideUpload = () => {
                             _hover={{
                                 bg: "cyan.400",
                                 boxShadow: 'xl',
-                            }}>
-                            Submit
+                            }}
+                            disabled={requesting ? true : false}
+                            onClick={handleUploadBot}
+                        >
+                            {
+                                requesting ? <Spinner thickness='4px' speed='0.65s' emptyColor='gray.200' color='teal' size='lg' />
+                                    : " Upload Bot"
+                            }
                         </Button>
                     </Box>
                     form
