@@ -6,6 +6,7 @@ import SignIn from './components/SignIn/SignIn';
 import AuthContextProvider from "./hooks/AuthContextProvider";
 import UploadFile from './components/UploadFile/UploadFile';
 import BotHasUploaded from './components/ShowBot/BotHasUploaded';
+import ActiveBot from './components/ActiveBot/ActiveBot';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
               />
               <Route path="/UploadFile" element={<UploadFile />} />
               <Route path="/BotHasUploaded" element={<BotHasUploaded />} />
+              <Route path="/ActiveBot" element={<ActiveBot />} />
             </Routes>
           </AuthContextProvider>
         </Fragment>

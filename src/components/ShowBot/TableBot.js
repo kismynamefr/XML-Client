@@ -42,7 +42,7 @@ const TableBot = () => {
     return (
         <TableContainer>
             {
-                data.length ? (
+                data?.length ? (
                     <Table variant='variant'>
                         <TableCaption>YOUR BOT HAS UPLOADED</TableCaption>
                         <Thead>
@@ -58,7 +58,10 @@ const TableBot = () => {
                         <Tbody>
                             {
                                 data && handleSort(data)?.map((res, index) => (
-                                    <Tr key={`${index}: ${res.name}`}>
+                                    <Tr key={`${index}: ${res.name}`}
+                                        borderBottomWidth="1px"
+                                        borderBottomColor='cyan.400'
+                                    >
                                         <Td isNumeric>{res.NameBot}</Td>
                                         <Td isNumeric>{handleConvertDay(res.createdAt)}</Td>
                                         <Td isNumeric>

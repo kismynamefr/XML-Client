@@ -6,15 +6,19 @@ import Toast from "../../hooks/ToastProvider";
 import logOutAction from '../../redux/action/actionLogout';
 import SideBarWithHeader from '../SideBar/SideBarWithHeader';
 import TableIndex from '../Table/Table';
+import getActivatedBotAction from "../../redux/action/actionGetActivatedBot";
 
 const Home = () => {
     const dispatch = useDispatch();
     const hasLogin = useSelector((state) => state.login?.hasLogin);
     const user = useSelector((state) => state.login?.data);
+    const activatedBot = useSelector((state) => state.getActivatedBot?.data);
     const decodedToken = jwt_decode(user?.accessToken);
     const navigate = useNavigate();
 
-    console.log(user);
+    const getActivatedBot = () => {
+        dispatch(getActivatedBotAction());
+    }
 
     useEffect(() => {
         if (!hasLogin) navigate("/Login");
@@ -28,9 +32,15 @@ const Home = () => {
         }
     }, [])
 
+    useEffect(() => {
+        if (user && hasLogin) {
+            getActivatedBot()
+        }
+    }, [])
+
     return (
         <SideBarWithHeader>
-            <TableIndex />
+            <TableIndex activatedBot={activatedBot} getActivatedBot={getActivatedBot}/>
         </SideBarWithHeader>
 
     )

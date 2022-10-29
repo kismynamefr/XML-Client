@@ -4,14 +4,14 @@ import {
     Flex, Text, useColorModeValue
 } from '@chakra-ui/react';
 import React from 'react';
-import { FiActivity, FiHome, FiTrash, FiUpload, FiSearch } from 'react-icons/fi';
+import { FiActivity, FiHome, FiSearch, FiUpload } from 'react-icons/fi';
 import NavItem from './NavItem';
 
 const LinkItems = [
-    { name: 'Home', linkHref: '/Home', href: '/Home', icon: FiHome },
-    { name: 'Active Bot', linkHref: 'Home', href: '/Home', icon: FiActivity },
-    { name: 'Upload Bot', linkHref: '/UploadFile', href: '/UploadFile', icon: FiUpload },
-    { name: 'Bot Has Uploaded', linkHref: '/BotHasUploaded', href: '/BotHasUploaded', icon: FiSearch },
+    { name: 'Home', href: '/Home', icon: FiHome },
+    { name: 'Active Bot', href: '/ActiveBot', icon: FiActivity },
+    { name: 'Upload Bot', href: '/UploadFile', icon: FiUpload },
+    { name: 'Bot Has Uploaded', href: '/BotHasUploaded', icon: FiSearch },
 ];
 
 const SidebarContent = ({ onClose, ...rest }) => {

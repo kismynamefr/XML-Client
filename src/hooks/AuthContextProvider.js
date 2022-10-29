@@ -1,5 +1,4 @@
 import React, { createContext, useState } from "react";
-import Toast from "./ToastProvider";
 
 export const AuthContext = createContext();
 
