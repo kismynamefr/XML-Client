@@ -16,7 +16,7 @@ function App() {
         <Fragment>
           <AuthContextProvider>
             <Routes>
-              <Route exact path="/Home" element={<Home />} />
+              <Route exact path="/" element={<Home />} />
               <Route
                 exact
                 path="/Login"

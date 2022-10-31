@@ -8,7 +8,7 @@ import { FiActivity, FiHome, FiSearch, FiUpload } from 'react-icons/fi';
 import NavItem from './NavItem';
 
 const LinkItems = [
-    { name: 'Home', href: '/Home', icon: FiHome },
+    { name: 'Home', href: '/', icon: FiHome },
     { name: 'Active Bot', href: '/ActiveBot', icon: FiActivity },
     { name: 'Upload Bot', href: '/UploadFile', icon: FiUpload },
     { name: 'Bot Has Uploaded', href: '/BotHasUploaded', icon: FiSearch },
