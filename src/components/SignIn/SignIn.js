@@ -41,7 +41,7 @@ const SignIn = () => {
     }, [errorLogin]);
 
     useEffect(() => {
-        if(hasLogin) navigate("/Home");
+        if(hasLogin) navigate("/");
     }, [hasLogin]);
 
 
