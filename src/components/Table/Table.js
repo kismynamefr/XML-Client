@@ -55,7 +55,7 @@ const TableIndex = ({ activatedBot, getActivatedBot }) => {
                                 </Td>
                                 <Td>{res.Name}</Td>
                                 <Td>{handleConvertDay(res.createdAt)}</Td>
-                                <Td><ButtonOption getActivatedBot={getActivatedBot} idBot={res._id} /></Td>
+                                <Td><ButtonOption getActivatedBot={getActivatedBot} idBot={res._id} botValue={res}/></Td>
                             </Tr>
                         ))
                     }
