@@ -13,8 +13,10 @@ const Home = () => {
     const hasLogin = useSelector((state) => state.login?.hasLogin);
     const user = useSelector((state) => state.login?.data);
     const activatedBot = useSelector((state) => state.getActivatedBot?.data);
-    const decodedToken = jwt_decode(user?.accessToken);
     const navigate = useNavigate();
+    let decodedToken;
+
+    if(user) decodedToken = jwt_decode(user?.accessToken);
 
     const getActivatedBot = () => {
         dispatch(getActivatedBotAction());

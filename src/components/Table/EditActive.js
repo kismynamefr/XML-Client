@@ -87,7 +87,7 @@ const EditActive = ({ botValue }) => {
 
         <Stack spacing={2} mx={'auto'} maxW={'container.xl'} py={5} w={'full'}>
             <Stack align={'center'}>
-                <Heading fontSize={'4xl'}>Edit Your Bot</Heading>
+                <Heading fontSize={'4xl'}>Edit Bot</Heading>
             </Stack>
             <Box
                 rounded={'lg'}

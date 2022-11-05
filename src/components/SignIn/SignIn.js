@@ -37,7 +37,7 @@ const SignIn = () => {
     };
 
     useEffect(() => {
-        if (!hasLogin && errorLogin) Toast("error", "Sai tên đăng nhập hoặc mật khẩu");
+        if (!hasLogin && errorLogin) Toast("error", "Wrong username or password");
     }, [errorLogin]);
 
     useEffect(() => {
