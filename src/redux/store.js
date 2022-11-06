@@ -1,27 +1,24 @@
 import { configureStore } from "@reduxjs/toolkit";
-import {
-    FLUSH, PAUSE,
-    PERSIST, persistReducer, persistStore, PURGE,
-    REGISTER, REHYDRATE
-} from "redux-persist";
-import storage from "redux-persist/lib/storage";
 import rootReducers from './reducer/index';
+import storage from "redux-persist/lib/storage";
+import { persistReducer, persistStore } from "redux-persist";
+import thunk from "redux-thunk";
 
 const persistConfig = {
-    key: "root",
-    version: 1,
-    storage,
+  key: "root",
+  storage,
 };
+const middleware =
+  process.env.NODE_ENV !== "production"
+    ? [require("redux-immutable-state-invariant").default(), thunk]
+    : [thunk];
 
 const persistedReducer = persistReducer(persistConfig, rootReducers);
 
 export const store = configureStore({
-    reducer: persistedReducer,
-    middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({
-            serializableCheck: {
-                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-            },
-        }),
+  reducer: persistedReducer,
+  devTools: process.env.NODE_ENV !== "production",
+  middleware: middleware,
 });
-export let persistor = persistStore(store);
+
+export const persistor = persistStore(store);
