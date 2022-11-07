@@ -36,6 +36,8 @@ const EditActive = ({ botValue, onClose }) => {
     ExpiredDay: botValue.ExpiredDay
   });
 
+  console.log(formValue)
+
   const getActivatedBot = useCallback(() => {
     dispatch(getActivatedBotAction());
   }, [getActivatedBotAction]);
@@ -89,10 +91,10 @@ const EditActive = ({ botValue, onClose }) => {
     [dataProcessed, formValue]
   );
 
-  const handleCheckbox = () => {
+  const handleCheckbox = (e) => {
     setFormValue({
       ...formValue,
-      ExpiredDay: "NERVER"
+      ExpiredDay: e.target.value
     })
   }
 
@@ -125,7 +127,7 @@ const EditActive = ({ botValue, onClose }) => {
               defaultValue={botValue.Name}
             />
           </FormControl>
-          <Checkbox value="NERVER" onClick={handleCheckbox}>NERVER</Checkbox>
+          <Checkbox value="NERVER" onChange={handleCheckbox}>NERVER</Checkbox>
           <FormControl>
             <FormLabel>Expired Days</FormLabel>
             <Input
