@@ -25,7 +25,6 @@ const InsideActive = () => {
   const [formValue, setFormValue] = useState({
     BBotID: "",
     Active: true,
-    HasActivatedTool: "pending",
     ValueBot: [],
     Name: "",
     ExpiredDay: "",
@@ -44,10 +43,6 @@ const InsideActive = () => {
     dataProcessed.map((res) => {
       const { NameBot } = res;
       newdataProcessed.push(NameBot);
-    });
-    setFormValue({
-      ...formValue,
-      ValueBot: newdataProcessed,
     });
     dispatch(
       activeBotAction({
