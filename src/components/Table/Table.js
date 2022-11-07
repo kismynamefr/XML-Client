@@ -39,8 +39,8 @@ const TableIndex = () => {
   const handleSort = useCallback(
     (data) => {
       const result = [...data].sort((a, b) => {
-        const d = new Date(a.createdAt);
-        const c = new Date(b.createdAt);
+        const d = new Date(a.updatedAt);
+        const c = new Date(b.updatedAt);
         return c - d;
       });
       return result;
@@ -78,10 +78,10 @@ const TableIndex = () => {
                 </Td>
                 <Td>{res.ValueBot.map((result) => result + `, `)}</Td>
                 <Td>{res.Name}</Td>
-                <Td>{handleConvertDay(res.ExpiredDay * 1000)}</Td>
+                <Td>{res.ExpiredDay === 'NERVER' ? 'NERVER' : handleConvertDay(res.ExpiredDay * 1000)}</Td>
                 <Td>{handleConvertDay(res.updatedAt)}</Td>
                 <Td>
-                  <ButtonOption idBot={res._id} botValue={res} />
+                  <ButtonOption idBot={res._id} botValue={res} getActivatedBot={getActivatedBot} />
                 </Td>
               </Tr>
             ))}

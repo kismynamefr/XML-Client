@@ -14,7 +14,7 @@ const delActivatedBotAction = (idBot, getActivatedBot) => async (dispatch) => {
             }
         }).then(data => {
             Toast("success", "Successfully deleted the activated Bot!!!")
-            // getActivatedBot();
+            getActivatedBot();
             const responseBody = data.data;
             dispatch({
                 type: DELETE_ACTIVATED_BOT_SUCCESS,

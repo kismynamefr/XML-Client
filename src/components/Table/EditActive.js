@@ -1,19 +1,20 @@
 import { AddIcon } from "@chakra-ui/icons";
 import {
-    Box,
-    Button,
-    Flex,
-    FormControl,
-    FormLabel,
-    Heading,
-    HStack,
-    Input,
-    Stack,
-    Tag,
-    TagCloseButton,
-    TagLabel,
-    TagRightIcon,
-    useColorModeValue
+  Box,
+  Button,
+  Flex,
+  FormControl,
+  FormLabel,
+  Heading,
+  HStack,
+  Input,
+  Stack,
+  Tag,
+  TagCloseButton,
+  TagLabel,
+  TagRightIcon,
+  useColorModeValue,
+  Checkbox, CheckboxGroup
 } from "@chakra-ui/react";
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,10 +28,12 @@ const EditActive = ({ botValue, onClose }) => {
   const [dataProcessed, setDataProcessed] = useState(data);
   const [formValue, setFormValue] = useState({
     _id: botValue._id,
+    BBotID: botValue.BBotID,
     Active: true,
     HasActivatedTool: "pending",
     ValueBot: botValue.ValueBot,
     Name: botValue.Name,
+    ExpiredDay: botValue.ExpiredDay
   });
 
   const getActivatedBot = useCallback(() => {
@@ -86,6 +89,13 @@ const EditActive = ({ botValue, onClose }) => {
     [dataProcessed, formValue]
   );
 
+  const handleCheckbox = () => {
+    setFormValue({
+      ...formValue,
+      ExpiredDay: "NERVER"
+    })
+  }
+
   useEffect(() => {
     getBotHasUploaded();
   }, []);
@@ -102,8 +112,8 @@ const EditActive = ({ botValue, onClose }) => {
             <Input
               name="BBotID"
               type="text"
+              onChange={handleForm}
               defaultValue={botValue.BBotID}
-              disabled={true}
             />
           </FormControl>
           <FormControl>
@@ -113,6 +123,17 @@ const EditActive = ({ botValue, onClose }) => {
               type="text"
               onChange={handleForm}
               defaultValue={botValue.Name}
+            />
+          </FormControl>
+          <Checkbox value="NERVER" onClick={handleCheckbox}>NERVER</Checkbox>
+          <FormControl>
+            <FormLabel>Expired Days</FormLabel>
+            <Input
+              placeholder="Select Date and Time"
+              size="md"
+              type="datetime-local"
+              name="ExpiredDay"
+              onChange={handleForm}
             />
           </FormControl>
           <FormLabel>Client Bot</FormLabel>

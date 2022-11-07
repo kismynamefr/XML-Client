@@ -18,13 +18,13 @@ import { useDispatch } from "react-redux";
 import delActivatedBotAction from "../../redux/action/actionDelActivatedBot";
 import Drawers from "./Drawer";
 
-const ButtonOption = ({ idBot, botValue }) => {
+const ButtonOption = ({ idBot, botValue, getActivatedBot }) => {
   const dispatch = useDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
 
   const handleDelActivatedBot = () => {
-    dispatch(delActivatedBotAction(idBot));
+    dispatch(delActivatedBotAction(idBot, getActivatedBot));
   };
 
   return (
