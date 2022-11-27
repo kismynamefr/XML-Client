@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Toast from "../../hooks/ToastProvider";
 import loginAction from '../../redux/action/actionLogin';
+import infinity from '../../assets/infinity.png';
 
 const CFaUserAlt = chakra(FaUserAlt);
 const CFaLock = chakra(FaLock);
@@ -60,8 +61,8 @@ const SignIn = () => {
                 justifyContent="center"
                 alignItems="center"
             >
-                <Avatar bg="teal.500" />
-                <Heading color="teal.400">Welcome To ServerXMl</Heading>
+                <img src={infinity} alt="infinity" style={{width: "200px"}}/>
+                <Heading color="teal.400">Welcome To Infinity Software</Heading>
                 <Box minW={{ base: "90%", md: "468px" }}>
                     <form>
                         <Stack
