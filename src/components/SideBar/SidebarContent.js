@@ -1,10 +1,11 @@
 import {
     Box,
     CloseButton,
-    Flex, Text, useColorModeValue
+    Flex, useColorModeValue
 } from '@chakra-ui/react';
 import React from 'react';
 import { FiActivity, FiHome, FiSearch, FiUpload } from 'react-icons/fi';
+import infinity from '../../assets/infinity.png';
 import NavItem from './NavItem';
 
 const LinkItems = [
@@ -27,9 +28,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
             h="full"
             {...rest}>
             <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-                <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-                    Infinity Software
-                </Text>
+                <img src={infinity} alt="infinity" style={{width: "80px"}}/>
                 <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
             </Flex>
             {LinkItems.map((link) => (
