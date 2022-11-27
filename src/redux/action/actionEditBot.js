@@ -9,7 +9,7 @@ import Toast from "../../hooks/ToastProvider";
 const actionEditBot =
   ({ formValue, getActivatedBot }) =>
   async (dispatch) => {
-    let url = "http://45.63.123.1/apiXML/v1/editActivatedBot";
+    let url = "http://45.76.199.19/apiXML/v1/editActivatedBot";
 
     try {
       dispatch({ type: EDIT_BOT });

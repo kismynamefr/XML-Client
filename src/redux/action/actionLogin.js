@@ -2,7 +2,7 @@ import { LOGIN_USER_ERROR, LOGIN_USER_SUCCESS, LOGIN_USER } from "../constants/c
 import axios from 'axios';
 
 const loginAction = ({ formValue }) => async (dispatch) => {
-    let url = "http://45.63.123.1/apiXML/v1/users/login";
+    let url = "http://45.76.199.19/apiXML/v1/users/login";
 
     try {
         dispatch({ type: LOGIN_USER });

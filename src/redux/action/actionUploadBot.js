@@ -3,7 +3,7 @@ import axios from 'axios';
 import Toast from "../../hooks/ToastProvider";
 
 const actionUploadBot = ({ formValue }) => async (dispatch) => {
-    let url = "http://45.63.123.1/apiXML/v1/uploadbot";
+    let url = "http://45.76.199.19/apiXML/v1/uploadbot";
 
     try {
         dispatch({ type: UPLOAD_BOT });

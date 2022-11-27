@@ -2,7 +2,7 @@ import { LOGOUT_USER_ERROR, LOGOUT_USER_SUCCESS, LOGOUT_USER } from "../constant
 import axios from 'axios';
 
 const logOutAction = () => async (dispatch) => {
-    let url = "http://45.63.123.1/apiXML/v1/users/logout";
+    let url = "http://45.76.199.19/apiXML/v1/users/logout";
 
     try {
         dispatch({ type: LOGOUT_USER });
