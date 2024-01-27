@@ -3,7 +3,7 @@ import axios from 'axios';
 import Toast from "../../hooks/ToastProvider";
 
 const activeBotAction = ({ formValue }) => async (dispatch) => {
-    let url = "http://45.76.199.19/apiXML/v1/activebot";
+    let url = "https://www.bdei.xyz/apiXML/v1/activebot";
     try {
         dispatch({ type: ACTIVE_BOT });
         await axios({

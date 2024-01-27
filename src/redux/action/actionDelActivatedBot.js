@@ -3,7 +3,7 @@ import axios from 'axios';
 import Toast from "../../hooks/ToastProvider";
 
 const delActivatedBotAction = (idBot, getActivatedBot) => async (dispatch) => {
-    let url = "http://45.76.199.19/apiXML/v1/deleteActivatedBot";
+    let url = "https://www.bdei.xyz/apiXML/v1/deleteActivatedBot";
     try {
         dispatch({ type: DELETE_ACTIVATED_BOT });
         await axios({

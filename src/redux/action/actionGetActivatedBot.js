@@ -6,7 +6,7 @@ import {
 import axios from "axios";
 
 const getActivatedBotAction = () => async (dispatch) => {
-  let url = "http://45.76.199.19/apiXML/v1/getActivatedBot";
+  let url = "https://www.bdei.xyz/apiXML/v1/getActivatedBot";
 
   try {
     dispatch({ type: GET_ACTIVE_BOT });
